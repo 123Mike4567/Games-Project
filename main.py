@@ -17,18 +17,18 @@ db.init_app(app)
 client_id = "Your_Client_ID"
 access_token = "353fjm07n8smtadru23wchpvyw57oe"
 
-# Set the URL for the IGDB API endpoint
+# URL for the IGDB API endpoint
 api_url = "https://api.igdb.com/v4/games"
 
-# Define the headers with the Client-ID and Authorization (Bearer token)
+#  Client-ID and Authorization (Bearer token)
 headers = {
     "Client-ID": "uunbhlj9ueil6dbxjyza9jktvgfird",
     "Authorization": f"Bearer {access_token}"
 }
-# Define the fields you want to retrieve
+#  fields you want to retrieve
 fields = "age_ratings,aggregated_rating,aggregated_rating_count,alternative_names,artworks,bundles,category,checksum,collection,collections,cover,created_at,dlcs,expanded_games,expansions,external_games,first_release_date,follows,forks,franchise,franchises,game_engines,game_localizations,game_modes,genres,hypes,involved_companies,keywords,language_supports,multiplayer_modes,name,parent_game,platforms,player_perspectives,ports,rating,rating_count,release_dates,remakes,remasters,screenshots,similar_games,slug,standalone_expansions,status,storyline,summary,tags,themes,total_rating,total_rating_count,updated_at,url,version_parent,version_title,videos,websites"
 
-# Define the data payload as a string
+# data payload as a string
 data = f"fields {fields};"
 
 
@@ -145,7 +145,7 @@ def add_game():
         # Extract names directly from the list of dictionaries
         options = [{"id": game["id"], "name": game.get("name", "No Name")} for game in game_data]
 
-        return render_template("select.html", options=options)  # Pass the list of names to the template
+        return render_template("select.html", options=options)  
     return render_template("add.html", form=form)
 
 
